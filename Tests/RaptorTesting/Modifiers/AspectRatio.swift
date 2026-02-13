@@ -5,7 +5,6 @@
 //  See LICENSE for license information.
 //
 
-import Foundation
 import Testing
 
 @testable import Raptor
@@ -13,19 +12,11 @@ import Testing
 /// Tests for the `AspectRatio` modifier.
 @Suite("AspectRatio Tests")
 struct AspectRatioTests {
-    private let formatter: NumberFormatter = {
-        var formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 0 // allow no decimals
-        formatter.maximumFractionDigits = 3 // limit to 3 decimals
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-
     @Test("Verify AspectRatio Modifiers", arguments: AspectRatio.allCases)
     func verifyAspectRatioModifiers(ratio: AspectRatio) {
         let element = Text("Hello").aspectRatio(ratio)
         let output = element.markupString()
-        let ratioString = formatter.string(from: NSNumber(value: ratio.numericValue))!
+        let ratioString = String(format: "%.4g", ratio.numericValue)
         #expect(output == "<p style=\"aspect-ratio: \(ratioString)\">Hello</p>")
     }
 
@@ -35,7 +26,7 @@ struct AspectRatioTests {
         let output = withTestRenderingEnvironment {
             element.markupString()
         }
-        let ratioString = formatter.string(from: NSNumber(value: ratio.numericValue))!
+        let ratioString = String(format: "%.4g", ratio.numericValue)
 
         #expect(output == """
         <div style="aspect-ratio: \(ratioString)">\
