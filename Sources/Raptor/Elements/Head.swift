@@ -58,6 +58,31 @@ struct Head {
         return context
     }
 
+    /// Query string appended to asset URLs for cache busting based on the site's version.
+    private var versionQuery: String {
+       "?v=\(siteContext.version)"
+    }
+
+    /// The CSS responsible for applying CSS relating to animations and themes..
+    private var raptorCoreCSS: Resource {
+        Resource(href: "/css/raptor-core.css\(versionQuery)", rel: .stylesheet)
+    }
+
+    /// The CSS used in Prism plugins like line numbering and line highlighting.
+    private var prismCSS: Resource {
+        Resource(href: "/css/prism.css\(versionQuery)", rel: .stylesheet)
+    }
+
+    /// The highlighter theme variables used throughout the site.
+    private var prismThemesCSS: Resource {
+        Resource(href: "/css/prism-themes.css\(versionQuery)", rel: .stylesheet)
+    }
+
+    /// The CSS you should include for Raptor pages that use system icons.
+    private var iconCSS: Resource {
+        Resource(href: "/css/bootstrap-icons.min.css\(versionQuery)", rel: .stylesheet)
+    }
+
     /// Page-level metadata derived from the current rendering environment.
     private var pageMetadata: PageMetadata {
         renderingContext.environment.page
@@ -123,7 +148,7 @@ struct Head {
             Resource(href: faviconURL, rel: .icon)
         }
 
-        Resource.iconCSS
+        iconCSS
     }
 
     /// Overridable document metadata that establishes identity and canonical context.
@@ -181,7 +206,7 @@ struct Head {
             assets.append(reservedNavigationSpaceScript)
         }
 
-        assets.append(Resource.raptorCoreCSS)
+        assets.append(raptorCoreCSS)
 
         if buildContext.includesSegmentedControl {
             assets.append(Script(file: "/js/raptor-segmented-controls.js"))
@@ -195,8 +220,8 @@ struct Head {
             var highlighterThemes = [any SyntaxHighlighterTheme]()
             highlighterThemes += siteContext.highlighterThemes
             highlighterThemes += buildContext.syntaxHighlighterThemes
-            assets.append(Resource.prismCSS)
-            assets.append(Resource.prismThemesCSS)
+            assets.append(prismCSS)
+            assets.append(prismThemesCSS)
         }
 
         return assets

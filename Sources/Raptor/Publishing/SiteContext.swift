@@ -25,6 +25,9 @@ package struct SiteContext: Sendable {
     /// All locales supported by the site.
     package let locales: [Locale]
 
+    /// A version identifier used for cache-busting static assets.
+    let version: String
+
     /// All visual themes available to the site.
     let themes: [any Theme]
 

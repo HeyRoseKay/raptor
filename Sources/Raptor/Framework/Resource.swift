@@ -10,18 +10,6 @@ import Foundation
 /// An item of metadata that links to an external resource somehow, such as
 /// a stylesheet.
 struct Resource: HeadContent, Sendable {
-    /// The CSS responsible for applying CSS relating to animations and themes..
-    static let raptorCoreCSS = Resource(href: "/css/raptor-core.css", rel: .stylesheet)
-
-    /// The CSS used in Prism plugins like line numbering and line highlighting.
-    static let prismCSS = Resource(href: "/css/prism.css", rel: .stylesheet)
-
-    /// The highlighter theme variables used throughout the site.
-    static let prismThemesCSS = Resource(href: "/css/prism-themes.css", rel: .stylesheet)
-
-    /// The CSS you should include for Raptor pages that use system icons.
-    static let iconCSS = Resource(href: "/css/bootstrap-icons.min.css", rel: .stylesheet)
-
     /// The standard set of control attributes for HTML elements.
     var attributes = CoreAttributes()
 
