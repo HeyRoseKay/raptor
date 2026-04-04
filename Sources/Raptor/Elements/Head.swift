@@ -60,7 +60,7 @@ struct Head {
 
     /// Query string appended to asset URLs for cache busting based on the site's version.
     private var versionQuery: String {
-       "?v=\(siteContext.version)"
+        siteContext.version.isEmpty ? "" : "?v=\(siteContext.version)"
     }
 
     /// The CSS responsible for applying CSS relating to animations and themes..
