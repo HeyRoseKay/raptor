@@ -11,9 +11,6 @@
 <p align="center">
    <img src="https://img.shields.io/badge/macOS-15.6+-2980b9.svg" />
    <img src="https://img.shields.io/badge/swift-6.2+-8e44ad.svg" />
-   <a href="https://twitter.com/jptoro">
-       <img src="https://img.shields.io/badge/Contact-@jptoro-95a5a6.svg?style=flat" alt="Twitter: @jptoro" />
-   </a>
 </p>
 
 ---
@@ -74,7 +71,7 @@ For a full breakdown of features and APIs, see the documentation at
 Pages and components are written using a declarative Swift syntax:
 
 ```swift
-Text("Swift for the web")
+Text("SwiftUI for the web")
    .font(.title1)
 
 Text(markdown: "Supports *inline* Markdown")
@@ -216,10 +213,10 @@ The core architecture is stable, but some APIs may evolve as the project matures
 
 ## License
 
-Raptor is licensed under the **GNU General Public License v3+ (GPLv3+)**.
+Copyright (c) 2026 Raptor contributors. Raptor is licensed under MIT. See the [LICENSE](LICENSE) file for full details.
 
-Copyright © 2026 J.P. Toro
+---
 
-You may freely build and publish any kind of website—personal or commercial—and all generated output is entirely yours. Raptor itself may be used as a dependency in GPLv3-compatible open-source projects. Separate licensing is available for proprietary use.
+## Acknowledgments
 
-See the [LICENSE](LICENSE) file for full details.
+This project builds on ideas and prior work from the Ignite project, which influenced its early development. Some portions of the implementation were adapted from that work and have since evolved. Portions derived from Ignite are licensed under the MIT License. See `LICENSES/IGNITE_LICENSE` for details.
