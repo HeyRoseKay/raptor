@@ -115,7 +115,7 @@ header.fixed-top {
     z-index: 1000;
 }
 
-header.fixed-top * {
+header.fixed-top *:not(.menu-dropdown, [popover], [class^="popover-anchor-"]) {
     position: relative;
     z-index: 1;
 }
