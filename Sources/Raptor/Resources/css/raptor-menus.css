@@ -51,6 +51,8 @@
 }
 
 /* --- Popover: top-layer positioning (JS sets exact coords via inline style) --- */
+/* transition:none overrides the base .menu-dropdown transition to prevent Safari's
+   overlay allow-discrete bug from jittering the close animation */
 .menu-dropdown[popover] {
     position: fixed;
     top: auto;
@@ -58,6 +60,7 @@
     right: auto;
     bottom: auto;
     margin: 0;
+    transition: none;
 }
 
 /* --- Open State --- */
