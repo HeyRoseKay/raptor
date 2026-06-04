@@ -67,13 +67,19 @@
     --anim-transform-base: var(--anim-transform-visible);
     --anim-transform-effective: var(--alignment-transform) var(--anim-transform-base);
     transform: var(--anim-transform-effective);
+    animation: menu-dropdown-open var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Starting style for open animation (opacity:0 keeps element invisible while JS positions it) */
-@starting-style {
-    .menu-dropdown:popover-open {
+/* Keyframe-based open animation avoids Safari @starting-style re-evaluation bug
+   that causes the popover to jitter back and forth on dismiss */
+@keyframes menu-dropdown-open {
+    from {
         opacity: 0;
         transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
