@@ -38,7 +38,9 @@
     transform: var(--anim-transform-effective);
     transform-origin: var(--anim-transform-origin, top center);
     transition: opacity var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1),
-    transform var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1);
+    transform var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1),
+    display var(--anim-duration, 0.15s) allow-discrete,
+    overlay var(--anim-duration, 0.15s) allow-discrete;
 
     /* Button variable defaults */
     --btn-bg: transparent;
@@ -48,13 +50,31 @@
     --btn-active-bg: var(--accent-quaternary);
 }
 
+/* --- Popover: top-layer positioning (JS sets exact coords via inline style) --- */
+.menu-dropdown[popover] {
+    position: fixed;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0;
+}
+
 /* --- Open State --- */
-.menu-dropdown[data-show="true"] {
+.menu-dropdown:popover-open {
     display: block;
     opacity: 1;
     --anim-transform-base: var(--anim-transform-visible);
     --anim-transform-effective: var(--alignment-transform) var(--anim-transform-base);
     transform: var(--anim-transform-effective);
+}
+
+/* Starting style for open animation (opacity:0 keeps element invisible while JS positions it) */
+@starting-style {
+    .menu-dropdown:popover-open {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 }
 
 /* =========================================================
@@ -199,7 +219,7 @@
     border: solid transparent;
 }
 
-.menu-dropdown > li > .menu > [data-toggle="dropdown"] {
+.menu-dropdown > li > .menu > [popovertarget] {
     display: flex;
     align-items: center;
     justify-content: flex-start;

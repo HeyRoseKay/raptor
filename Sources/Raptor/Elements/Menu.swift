@@ -30,6 +30,9 @@ public struct Menu<Label: InlineContent, Content: HTML>: HTML {
     /// The array of actions to fire when the menu is pressed.
     private var actions = [any Action]()
 
+    /// Unique popover ID for this menu instance.
+    private let menuID = "menu-\(UUID().uuidString.truncatedHash)"
+
     /// Creates a new dropdown button using a title and an element that builder
     /// that returns an array of types conforming to `DropdownItem`.
     /// - Parameters:
@@ -160,7 +163,7 @@ public struct Menu<Label: InlineContent, Content: HTML>: HTML {
         Section {
             if actions.isEmpty {
                 Button(title, systemImage: icon)
-                    .data("toggle", "dropdown")
+                    .attribute("popovertarget", menuID)
                     .class("btn-menu")
             } else {
                 Section {
@@ -170,7 +173,7 @@ public struct Menu<Label: InlineContent, Content: HTML>: HTML {
                     .class("menu-group-action")
 
                     Button()
-                        .data("toggle", "dropdown")
+                        .attribute("popovertarget", menuID)
                         .class("menu-group-toggle")
                 }
                 .class("menu-group")
@@ -183,6 +186,8 @@ public struct Menu<Label: InlineContent, Content: HTML>: HTML {
                     }
                 }
             }
+            .id(menuID)
+            .attribute("popover", "auto")
             .class("menu-dropdown", "material-ultra-thick")
             .attributes(dropdownAttributes)
         }
