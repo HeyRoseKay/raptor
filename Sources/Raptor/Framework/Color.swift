@@ -212,9 +212,9 @@ public struct Color: CustomStringConvertible, Equatable, Hashable, Sendable {
             let newOpacity = Int(Double(o) * multiplier)
             return Color(
                 colorSpace: .rgb,
-                red: Double(r),
-                green: Double(g),
-                blue: Double(b),
+                red: Double(r) / 255.0,
+                green: Double(g) / 255.0,
+                blue: Double(b) / 255.0,
                 opacity: Double(newOpacity) / 100)
         case .p3(let r, let g, let b, let o):
             let newOpacity = Int(Double(o) * multiplier)
@@ -246,9 +246,9 @@ public struct Color: CustomStringConvertible, Equatable, Hashable, Sendable {
             let newBlue = Int(Double(b) * (1 - percentage) + Double(mixColor.blue) * percentage)
             return Color(
                 colorSpace: .rgb,
-                red: Double(newRed),
-                green: Double(newGreen),
-                blue: Double(newBlue),
+                red: Double(newRed) / 255.0,
+                green: Double(newGreen) / 255.0,
+                blue: Double(newBlue) / 255.0,
                 opacity: Double(o) / 100)
 
         case .p3(let r, let g, let b, let o):
