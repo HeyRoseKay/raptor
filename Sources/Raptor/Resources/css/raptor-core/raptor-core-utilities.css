@@ -345,3 +345,8 @@
     border-radius: var(--btn-corner-radius);
     corner-shape: var(--btn-corner-shape);
 }
+
+/* ===== COLOR SCHEME IMAGE/SVG VARIANTS ===== */
+.raptor-scheme-dark { display: none; }
+[data-color-scheme="dark"] .raptor-scheme-dark { display: block; }
+[data-color-scheme="dark"] .raptor-scheme-light { display: none; }

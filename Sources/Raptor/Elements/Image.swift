@@ -94,13 +94,32 @@ public struct Image: InlineContent, LazyLoadable {
     ///   - description: The accessibility label to use.
     /// - Returns: The HTML for this element.
     private func render(path: String, description: String) -> Markup {
-        var attributes = attributes
-        attributes.append(customAttributes:
+        var baseAttributes = attributes
+        baseAttributes.append(customAttributes:
             .init(name: "src", value: path),
             .init(name: "alt", value: description))
 
         let (lightVariants, darkVariants) = findVariants(for: path)
 
+        // When both variants exist, use CSS-based switching so data-color-scheme
+        // (the site's manual toggle) works, not just the OS prefers-color-scheme.
+        if !lightVariants.isEmpty && !darkVariants.isEmpty {
+            var lightAttributes = baseAttributes
+            if let lightSet = generateSourceSet(lightVariants) {
+                lightAttributes.append(customAttributes: lightSet)
+            }
+            lightAttributes.append(classes: "raptor-scheme-light")
+
+            var darkAttributes = baseAttributes
+            if let darkSet = generateSourceSet(darkVariants) {
+                darkAttributes.append(customAttributes: darkSet)
+            }
+            darkAttributes.append(classes: "raptor-scheme-dark")
+
+            return Markup("<img\(lightAttributes) /><img\(darkAttributes) />")
+        }
+
+        var attributes = baseAttributes
         if let sourceSet = generateSourceSet(lightVariants) {
             attributes.append(customAttributes: sourceSet)
         }
@@ -110,12 +129,9 @@ public struct Image: InlineContent, LazyLoadable {
         }
 
         var output = "<picture\(attributes)>"
-
         if let darkSourceSet = generateSourceSet(darkVariants), let value = darkSourceSet.value {
             output += "<source media=\"(prefers-color-scheme: dark)\" srcset=\"\(value)\">"
         }
-
-        // Add the fallback img tag
         output += "<img\(attributes) />"
         output += "</picture>"
         return Markup(output)
@@ -125,6 +141,36 @@ public struct Image: InlineContent, LazyLoadable {
     /// - Parameter path: The resolved web path to the SVG asset.
     /// - Returns: A `Markup` value containing the inlined SVG, or empty markup if loading fails.
     private func renderSVG(at path: String) -> Markup {
+        let (lightVariants, darkVariants) = findVariants(for: path)
+
+        if !lightVariants.isEmpty && !darkVariants.isEmpty {
+            var output = ""
+
+            if let lightURL = lightVariants.first,
+               var lightSVG = try? String(contentsOf: lightURL, encoding: .utf8),
+               let lightRange = lightSVG.range(of: "<svg[^>]*>", options: .regularExpression) {
+                var svgAttributes = attributes
+                svgAttributes.append(classes: "svg raptor-scheme-light")
+                let updatedTag = String(lightSVG[lightRange].dropLast()) + "\(svgAttributes)>"
+                lightSVG.replaceSubrange(lightRange, with: updatedTag)
+                output += lightSVG
+            }
+
+            if let darkURL = darkVariants.first,
+               var darkSVG = try? String(contentsOf: darkURL, encoding: .utf8),
+               let darkRange = darkSVG.range(of: "<svg[^>]*>", options: .regularExpression) {
+                var svgAttributes = attributes
+                svgAttributes.append(classes: "svg raptor-scheme-dark")
+                let updatedTag = String(darkSVG[darkRange].dropLast()) + "\(svgAttributes)>"
+                darkSVG.replaceSubrange(darkRange, with: updatedTag)
+                output += darkSVG
+            }
+
+            if !output.isEmpty {
+                return Markup(output)
+            }
+        }
+
         let assetURL = renderingContext.assetsDirectory
             .appendingPathComponent(path.trimmingCharacters(in: CharacterSet(charactersIn: "/")))
 
@@ -133,20 +179,16 @@ public struct Image: InlineContent, LazyLoadable {
             return Markup()
         }
 
-        // Find the opening <svg ...> tag
         guard let range = svg.range(of: "<svg[^>]*>", options: .regularExpression) else {
             BuildContext.logWarning("Invalid SVG format at \(path)")
             return Markup()
         }
 
-        // Build merged attributes
         var mergedAttributes = attributes
         mergedAttributes.append(classes: "svg")
 
-        // Inject attributes just before the closing ">"
         let openingTag = svg[range]
         let updatedTag = openingTag.dropLast() + "\(mergedAttributes)>"
-
         svg.replaceSubrange(range, with: updatedTag)
 
         return Markup(svg)
