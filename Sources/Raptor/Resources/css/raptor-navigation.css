@@ -135,33 +135,5 @@ header.fixed-top .navbar {
 .nav-width-content {
     width: 100%;
     margin-inline: auto;
-    max-width: 100%;
-}
-
-/* sm */
-@media (min-width: 575px) {
-    .nav-width-content {
-        max-width: var(--content-max-width, 575px);
-    }
-}
-
-/* md */
-@media (min-width: 768px) {
-    .nav-width-content {
-        max-width: var(--content-max-width, 768px);
-    }
-}
-
-/* lg */
-@media (min-width: 1024px) {
-    .nav-width-content {
-        max-width: var(--content-max-width, 1024px);
-    }
-}
-
-/* xl */
-@media (min-width: 1440px) {
-    .nav-width-content {
-        max-width: var(--content-max-width, 1440px);
-    }
+    max-width: var(--content-max-width, 1440px);
 }
