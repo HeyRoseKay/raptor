@@ -49,10 +49,10 @@
     --anim-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Semantic accent color scale */
-    --accent-secondary:   color-mix(in srgb, var(--accent)  8%, transparent);
-    --accent-tertiary:    color-mix(in srgb, var(--accent) 16%, transparent);
-    --accent-quaternary:  color-mix(in srgb, var(--accent) 24%, transparent);
-    --accent-quinary:     color-mix(in srgb, var(--accent) 32%, transparent);
+    --accent-secondary:   color-mix(in srgb, var(--accent) 84%, transparent);
+    --accent-tertiary:    color-mix(in srgb, var(--accent) 68%, transparent);
+    --accent-quaternary:  color-mix(in srgb, var(--accent) 52%, transparent);
+    --accent-quinary:     color-mix(in srgb, var(--accent) 36%, transparent);
 
     /* Control defaults */
     --ctrl-padding: 0.5em 0.75em;
@@ -170,10 +170,10 @@
     --r-brown: color(display-p3 0.68 0.5 0.37);
     --r-gray: color(display-p3 0.56 0.56 0.58);
 
-    --accent-secondary: color-mix(in display-p3, var(--accent)  8%, transparent);
-    --accent-tertiary: color-mix(in display-p3, var(--accent) 16%, transparent);
-    --accent-quaternary: color-mix(in display-p3, var(--accent) 24%, transparent);
-    --accent-quinary: color-mix(in display-p3, var(--accent) 32%, transparent);
+    --accent-secondary: color-mix(in display-p3, var(--accent) 84%, transparent);
+    --accent-tertiary: color-mix(in display-p3, var(--accent) 68%, transparent);
+    --accent-quaternary: color-mix(in display-p3, var(--accent) 52%, transparent);
+    --accent-quinary: color-mix(in display-p3, var(--accent) 36%, transparent);
   }
 
   :root[data-color-scheme="dark"] {
@@ -197,10 +197,10 @@
 .menu,
 .btn,
 button.btn {
-    --accent-secondary:   color-mix(in srgb, var(--accent)  8%, transparent);
-    --accent-tertiary:    color-mix(in srgb, var(--accent) 16%, transparent);
-    --accent-quaternary:  color-mix(in srgb, var(--accent) 24%, transparent);
-    --accent-quinary:     color-mix(in srgb, var(--accent) 32%, transparent);
+    --accent-secondary:   color-mix(in srgb, var(--accent) 84%, transparent);
+    --accent-tertiary:    color-mix(in srgb, var(--accent) 68%, transparent);
+    --accent-quaternary:  color-mix(in srgb, var(--accent) 52%, transparent);
+    --accent-quinary:     color-mix(in srgb, var(--accent) 36%, transparent);
 }
 
 /* =========================================================
@@ -232,8 +232,8 @@ html[data-color-scheme="dark"] {
 :is(.menu, .btn, button.btn)[style*="--accent: var(--r-gray)"],
 :root:not([data-color-scheme="dark"])
 :is(.menu, .btn, button.btn)[style*="--accent: var(--r-gray)"] {
-    --accent-secondary:  color-mix(in srgb, var(--r-gray) 24%, transparent);
-    --accent-tertiary:   color-mix(in srgb, var(--r-gray) 32%, transparent);
-    --accent-quaternary: color-mix(in srgb, var(--r-gray) 40%, transparent);
-    --accent-quinary:    color-mix(in srgb, var(--r-gray) 48%, transparent);
+    --accent-secondary:  color-mix(in srgb, var(--r-gray) 88%, transparent);
+    --accent-tertiary:   color-mix(in srgb, var(--r-gray) 72%, transparent);
+    --accent-quaternary: color-mix(in srgb, var(--r-gray) 56%, transparent);
+    --accent-quinary:    color-mix(in srgb, var(--r-gray) 40%, transparent);
 }

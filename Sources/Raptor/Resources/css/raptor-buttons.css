@@ -11,10 +11,10 @@ button, a.btn {
     font: inherit;
     color: inherit;
     cursor: pointer;
-    --btn-hover-bg: var(--accent-tertiary);
-    --btn-active-bg: var(--accent-quaternary);
-    --btn-hover-border: 1px solid var(--accent-tertiary);
-    --btn-active-border: 1px solid var(--accent-quaternary);
+    --btn-hover-bg: var(--accent-quaternary);
+    --btn-active-bg: var(--accent-tertiary);
+    --btn-hover-border: 1px solid var(--accent-quaternary);
+    --btn-active-border: 1px solid var(--accent-tertiary);
 }
 
 /* --- Base Button --- */
@@ -24,7 +24,7 @@ button.btn, a.btn {
     -webkit-user-select: none;
     transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    background-color: var(--btn-bg, var(--accent-secondary));
+    background-color: var(--btn-bg, var(--accent-quinary));
     --fg: var(--btn-fg, var(--accent));
     color: var(--fg);
     border: var(--btn-border, 1px solid transparent);
@@ -67,14 +67,14 @@ button.btn > * + * {
 .btn-filled,
 .btn-filled .btn,
 .btn-filled .search-button {
-    --btn-bg: var(--accent-secondary);
+    --btn-bg: var(--accent-quinary);
     --fg: var(--accent);
     --btn-fg: var(--accent);
-    --btn-border: 1px solid var(--accent-secondary);
-    --btn-hover-bg: var(--accent-tertiary);
-    --btn-active-bg: var(--accent-quaternary);
-    --btn-hover-border: 1px solid var(--accent-tertiary);
-    --btn-active-border: 1px solid var(--accent-quaternary);
+    --btn-border: 1px solid var(--accent-quinary);
+    --btn-hover-bg: var(--accent-quaternary);
+    --btn-active-bg: var(--accent-tertiary);
+    --btn-hover-border: 1px solid var(--accent-quaternary);
+    --btn-active-border: 1px solid var(--accent-tertiary);
 }
 
 /* --- Bordered --- */
@@ -85,8 +85,8 @@ button.btn > * + * {
     --fg: var(--accent);
     --btn-fg: var(--accent);
     --btn-border: 1px solid var(--accent);
-    --btn-hover-bg: var(--accent-secondary);
-    --btn-active-bg: var(--accent-tertiary);
+    --btn-hover-bg: var(--accent-quinary);
+    --btn-active-bg: var(--accent-quaternary);
     --btn-hover-border: 1px solid color-mix(in srgb, var(--accent) 85%, black);
     --btn-active-border: 1px solid color-mix(in srgb, var(--accent) 70%, black);
 }
@@ -99,8 +99,8 @@ button.btn > * + * {
     --fg: var(--accent);
     --btn-fg: var(--accent);
     --btn-border: none;
-    --btn-hover-bg: var(--accent-secondary);
-    --btn-active-bg: var(--accent-tertiary);
+    --btn-hover-bg: var(--accent-quinary);
+    --btn-active-bg: var(--accent-quaternary);
 }
 
 /* =========================================================
@@ -145,13 +145,13 @@ button.btn:hover,
 button.btn:focus-visible,
 a.btn:hover,
 a.btn:focus-visible {
-    background-color: var(--btn-hover-bg, var(--accent-secondary));
+    background-color: var(--btn-hover-bg, var(--accent-quinary));
     border: var(--btn-hover-border, var(--btn-border 1px));
 }
 
 button.btn:active,
 a.btn:active {
-    background-color: var(--btn-active-bg, var(--accent-tertiary));
+    background-color: var(--btn-active-bg, var(--accent-quaternary));
     border: var(--btn-active-border, var(--btn-border 1px));
 }
 
