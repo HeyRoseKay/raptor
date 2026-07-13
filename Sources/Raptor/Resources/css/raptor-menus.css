@@ -46,8 +46,8 @@
     --btn-bg: transparent;
     --btn-fg: var(--fg);
     --btn-border: none;
-    --btn-hover-bg: var(--accent-tertiary);
-    --btn-active-bg: var(--accent-quaternary);
+    --btn-hover-bg: var(--accent-secondary);
+    --btn-active-bg: var(--accent-tertiary);
 }
 
 /* --- Popover: top-layer positioning (JS sets exact coords via inline style) --- */
@@ -311,7 +311,7 @@
     --focus-outline-width: 2px;
     outline: 2px solid AccentColor;
     outline-offset: -2px;
-    background: var(--accent-tertiary);
+    background: var(--accent-secondary);
     position: relative;
     z-index: 2;
     border: 0;
