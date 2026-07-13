@@ -171,6 +171,11 @@ public struct Color: CustomStringConvertible, Equatable, Hashable, Sendable {
     }
 
     public static let accent = Color(variable: "--accent")
+    public static let secondaryAccent = Color(variable: "--accent-secondary")
+    public static let tertiaryAccent = Color(variable: "--accent-tertiary")
+    public static let quaternaryAccent = Color(variable: "--accent-quaternary")
+    public static let quinaryAccent = Color(variable: "--accent-quinary")
+
     public static let primary = Color(variable: "--fg")
     public static let secondary = Color(variable: "--fg-secondary")
     public static let tertiary = Color(variable: "--fg-tertiary")

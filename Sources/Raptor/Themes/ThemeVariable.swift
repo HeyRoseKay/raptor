@@ -14,7 +14,7 @@ enum ThemeVariable: String, Sendable {
     case foreground = "--fg"
 
     /// Default background color for the body
-    case background = "--bg-page"
+    case background = "--bg"
 
     /// Default background gradient for the body
     case backgroundGradient = "--bg-gradient"
