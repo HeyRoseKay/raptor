@@ -18,7 +18,7 @@
     position: absolute;
     min-width: 200px;
     top: 100%;
-    left: 0;
+    inset-inline-start: 0;
     list-style: none;
     margin: 0.25rem 0 0 0;
     z-index: 2;
@@ -56,8 +56,8 @@
 .menu-dropdown[popover] {
     position: fixed;
     top: auto;
-    left: auto;
-    right: auto;
+    inset-inline-start: auto;
+    inset-inline-end: auto;
     bottom: auto;
     margin: 0;
     transition: none;
@@ -135,17 +135,17 @@
 }
 
 .menu-group > .menu-group-action {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: none;
-    padding-right: 0.2em;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    border-inline-end: none;
+    padding-inline-end: 0.2em;
 }
 
 .menu-group > .menu-group-toggle {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding-left: 0.2rem;
-    border-left: none;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    padding-inline-start: 0.2rem;
+    border-inline-start: none;
 }
 
 /* --- Focus --- */
@@ -176,13 +176,13 @@
 .menu.dropdown-align-leading > .menu-dropdown {
     inset: 50% 100% auto auto;
     --alignment-transform: translateY(-50%);
-    margin-right: 0.25rem;
+    margin-inline-end: 0.25rem;
 }
 
 .menu.dropdown-align-trailing > .menu-dropdown {
     inset: 50% auto auto 100%;
     --alignment-transform: translateY(-50%);
-    margin-left: 0.25rem;
+    margin-inline-start: 0.25rem;
 }
 
 .menu.dropdown-align-topLeading > .menu-dropdown {
@@ -235,14 +235,14 @@
     width: 100%;
     border: none !important;
     font: inherit;
-    text-align: left;
+    text-align: start;
     corner-shape: var(--btn-corner-shape, superellipse(1.25));
 }
 
 .menu-dropdown > li > .menu > .menu-dropdown {
     top: 0;
-    left: 100%;
-    margin-left: 0.25rem;
+    inset-inline-start: 100%;
+    margin-inline-start: 0.25rem;
 }
 
 /* =========================================================
@@ -253,7 +253,7 @@
     flex: 3;
     width: 100%;
     justify-content: flex-start;
-    text-align: left;
+    text-align: start;
     border: none;
     align-items: center;
     display: flex;
@@ -275,7 +275,7 @@
     justify-content: center;
     width: auto;
     text-align: center;
-    border-left: 1px solid var(--divider, color-mix(in srgb, var(--fg) 15%, transparent));
+    border-inline-start: 1px solid var(--divider, color-mix(in srgb, var(--fg) 15%, transparent));
 }
 
 .menu:not(.carrot-up):not(.carrot-left):not(.carrot-right):not(.carrot-down)
@@ -353,17 +353,17 @@
 
 /* Capsule corners only when menu-group is inside a menu dropdown */
 .menu-dropdown .menu-group > .menu-group-action {
-  border-top-left-radius: var(--dropdown-item-corner-radius, 9999px);
-  border-bottom-left-radius: var(--dropdown-item-corner-radius, 9999px);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-start-start-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-end-start-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
 }
 
 .menu-dropdown .menu-group > .menu-group-toggle {
-  border-top-right-radius: var(--dropdown-item-corner-radius, 9999px);
-  border-bottom-right-radius: var(--dropdown-item-corner-radius, 9999px);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-start-end-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-end-end-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
 }
 
 /* Icon on the right ONLY for .menu-dropdown items NOT in .ctrl-group */
@@ -448,13 +448,13 @@
 }
 
 .menu-dropdown .ctrl-group .btn-icon {
-    margin-left: 0;
+    margin-inline-start: 0;
     margin-bottom: 0.35em;
 }
 
 .menu-dropdown .ctrl-group .btn-label,
 .menu-dropdown .btn-label {
-    margin-left: 0;
+    margin-inline-start: 0;
 }
 
 /* Make dropdown menu header stretch across width */

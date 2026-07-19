@@ -98,8 +98,8 @@ p {
     text-wrap: pretty;
     margin-bottom: var(--paragraph-margin-bottom);
     margin-top: var(--paragraph-margin-top);
-    margin-right: var(--paragraph-margin-right);
-    margin-left: var(--paragraph-margin-left);
+    margin-inline-end: var(--paragraph-margin-right);
+    margin-inline-start: var(--paragraph-margin-left);
 }
 
 h1, h2, h3, h4, h5, h6 {

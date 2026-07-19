@@ -104,8 +104,13 @@ public struct PlainDocument: Document {
         var attributes = CoreAttributes()
 
         let defaultLocale = renderingContext.defaultLocale
-        let language = defaultLocale?.asRFC5646 ?? Locale.automatic.asRFC5646
+        let effectiveLocale = defaultLocale ?? Locale.automatic
+        let language = effectiveLocale.asRFC5646
         attributes.append(customAttributes: .init(name: "lang", value: language))
+
+        if effectiveLocale.isRTL {
+            attributes.append(customAttributes: .init(name: "dir", value: "rtl"))
+        }
 
         let site = renderingContext.site
 

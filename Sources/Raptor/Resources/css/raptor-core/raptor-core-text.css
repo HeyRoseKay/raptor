@@ -103,8 +103,8 @@
 .markdown table,
 .markdown > div {
     margin-top: var(--paragraph-margin-top);
-    margin-right: var(--paragraph-margin-right);
-    margin-left: var(--paragraph-margin-left);
+    margin-inline-end: var(--paragraph-margin-right);
+    margin-inline-start: var(--paragraph-margin-left);
 }
 
 .markdown dl,
@@ -138,8 +138,8 @@
 .markdown h6 {
     margin-top: var(--heading-margin-top, 1.2em);
     margin-bottom: var(--heading-margin-bottom, 0.5em);
-    margin-right: var(--heading-margin-right);
-    margin-left: var(--heading-margin-left);
+    margin-inline-end: var(--heading-margin-right);
+    margin-inline-start: var(--heading-margin-left);
 }
 
 /* When a rule precedes a heading, let the rule carry spacing */

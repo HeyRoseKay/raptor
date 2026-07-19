@@ -6,6 +6,9 @@ function setLocale(locale) {
     try {
         localStorage.setItem("preferredLocale", locale);
         document.documentElement.lang = locale;
+        const rtlLocales = ["ar", "he", "fa", "ur", "ps", "ku", "dv", "yi", "syc", "arc", "nqo"];
+        const langCode = locale.split("-")[0].toLowerCase();
+        document.documentElement.dir = rtlLocales.includes(langCode) ? "rtl" : "ltr";
 
         const base = window.location.origin;
         let currentPath = window.location.pathname

@@ -5,25 +5,25 @@
     display: block;
     list-style: none;
     position: relative;
-    padding-left: 1.75em; /* marker space only */
+    padding-inline-start: 1.75em; /* marker space only */
     background: var(--list-row-bg);
     margin-bottom: var(--list-row-spacing);
 
     border-top: var(--list-row-border-top);
     border-bottom: var(--list-row-border-bottom);
-    border-left: var(--list-row-border-leading);
-    border-right: var(--list-row-border-trailing);
+    border-inline-start: var(--list-row-border-leading);
+    border-inline-end: var(--list-row-border-trailing);
 
-    border-top-left-radius: var(--list-row-radius-top-leading);
-    border-top-right-radius: var(--list-row-radius-top-trailing);
-    border-bottom-left-radius: var(--list-row-radius-bottom-leading);
-    border-bottom-right-radius: var(--list-row-radius-bottom-trailing);
+    border-start-start-radius: var(--list-row-radius-top-leading);
+    border-start-end-radius: var(--list-row-radius-top-trailing);
+    border-end-start-radius: var(--list-row-radius-bottom-leading);
+    border-end-end-radius: var(--list-row-radius-bottom-trailing);
 }
 
 /* Marker (offset by per-side padding) */
 .list .list-row::before {
     position: absolute;
-    left: var(--list-row-padding-left, 0);
+    inset-inline-start: var(--list-row-padding-left, 0);
     top:  var(--list-row-padding-top, 0);
 }
 
@@ -32,9 +32,9 @@
 /* ------------------------------------------ */
 .list .list-row > .list-row-content {
     padding-top: var(--list-row-padding-top);
-    padding-right: var(--list-row-padding-right);
+    padding-inline-end: var(--list-row-padding-right);
     padding-bottom: var(--list-row-padding-bottom);
-    padding-left: var(--list-row-padding-left);
+    padding-inline-start: var(--list-row-padding-left);
 }
 
 /* ------- ORDERED LISTS ------- */

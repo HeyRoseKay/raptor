@@ -18,4 +18,10 @@ package extension Locale {
         }
         return identifier.replacingOccurrences(of: "_", with: "-")
     }
+
+    /// Returns `true` when this locale's script is written right-to-left.
+    var isRTL: Bool {
+        let code = (language.languageCode?.identifier ?? identifier).lowercased()
+        return ["ar", "he", "fa", "ur", "ps", "ku", "dv", "yi", "syc", "arc", "nqo"].contains(code)
+    }
 }

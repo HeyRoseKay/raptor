@@ -81,7 +81,7 @@ dialog.presentation-align-topLeading[open],
 [popover].presentation-align-topLeading,
 [popover].presentation-align-topLeading:popover-open {
     top: 10px;
-    left: 10px;
+    inset-inline-start: 10px;
 }
 
 dialog.presentation-align-topTrailing,
@@ -89,7 +89,7 @@ dialog.presentation-align-topTrailing[open],
 [popover].presentation-align-topTrailing,
 [popover].presentation-align-topTrailing:popover-open {
     top: 10px;
-    right: 10px;
+    inset-inline-end: 10px;
 }
 
 dialog.presentation-align-bottomLeading,
@@ -97,7 +97,7 @@ dialog.presentation-align-bottomLeading[open],
 [popover].presentation-align-bottomLeading,
 [popover].presentation-align-bottomLeading:popover-open {
     bottom: 10px;
-    left: 10px;
+    inset-inline-start: 10px;
 }
 
 dialog.presentation-align-bottomTrailing,
@@ -105,7 +105,7 @@ dialog.presentation-align-bottomTrailing[open],
 [popover].presentation-align-bottomTrailing,
 [popover].presentation-align-bottomTrailing:popover-open {
     bottom: 10px;
-    right: 10px;
+    inset-inline-end: 10px;
 }
 
 /* Side alignments - flush to edge */
@@ -113,7 +113,7 @@ dialog.presentation-align-leading,
 dialog.presentation-align-leading[open],
 [popover].presentation-align-leading,
 [popover].presentation-align-leading:popover-open {
-    left: 10px;
+    inset-inline-start: 10px;
     top: 10px;
 }
 
@@ -121,7 +121,7 @@ dialog.presentation-align-trailing,
 dialog.presentation-align-trailing[open],
 [popover].presentation-align-trailing,
 [popover].presentation-align-trailing:popover-open {
-    right: 10px;
+    inset-inline-end: 10px;
     top: 10px;
 }
 

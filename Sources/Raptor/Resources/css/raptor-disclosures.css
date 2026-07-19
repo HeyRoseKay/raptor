@@ -29,7 +29,7 @@
     content: var(--disc-indicator, "\F64D");
     font-family: "bootstrap-icons";
     position: absolute;
-    right: 20px;
+    inset-inline-end: 20px;
     top: 0;
     bottom: 0;
     margin: auto 0;

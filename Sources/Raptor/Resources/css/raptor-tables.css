@@ -27,10 +27,10 @@ table th {
     transition: background 0.18s ease;
 }
 
-/* Force headers left-aligned */
+/* Force headers start-aligned */
 table th {
     padding: 0;
-    text-align: left;
+    text-align: start;
 }
 
 /* Make header content fill the entire cell box */
@@ -58,18 +58,18 @@ table:not([data-table-separators="false"]) th {
     background: var(--table-stripe-bg);
 }
 
-/* Rounded LEFT corners of striped rows */
+/* Rounded start corners of striped rows */
 .table-striped-rows tbody tr:nth-of-type(odd) td:first-child,
 .table-striped-rows tbody tr:nth-of-type(odd) th:first-child {
-    border-top-left-radius: var(--table-cell-radius);
-    border-bottom-left-radius: var(--table-cell-radius);
+    border-start-start-radius: var(--table-cell-radius);
+    border-end-start-radius: var(--table-cell-radius);
 }
 
-/* Rounded RIGHT corners of striped rows */
+/* Rounded end corners of striped rows */
 .table-striped-rows tbody tr:nth-of-type(odd) td:last-child,
 .table-striped-rows tbody tr:nth-of-type(odd) th:last-child {
-    border-top-right-radius: var(--table-cell-radius);
-    border-bottom-right-radius: var(--table-cell-radius);
+    border-start-end-radius: var(--table-cell-radius);
+    border-end-end-radius: var(--table-cell-radius);
 }
 
 /* --------------------------------------------- */
@@ -88,20 +88,20 @@ table:not([data-table-separators="false"]) th {
 
 /* Rounded TOP corners belong to the header, not the rows */
 .header-table.table-striped-columns thead th:nth-child(even) {
-    border-top-left-radius: var(--table-cell-radius);
-    border-top-right-radius: var(--table-cell-radius);
+    border-start-start-radius: var(--table-cell-radius);
+    border-start-end-radius: var(--table-cell-radius);
 }
 
 /* Ensure data rows DO NOT receive top rounding */
 .header-table.table-striped-columns tbody tr:first-child td:nth-child(even) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
 }
 
 /* Rounded BOTTOM corners still apply to last striped cell */
 .header-table.table-striped-columns tbody tr:last-child td:nth-child(even) {
-    border-bottom-left-radius: var(--table-cell-radius);
-    border-bottom-right-radius: var(--table-cell-radius);
+    border-end-start-radius: var(--table-cell-radius);
+    border-end-end-radius: var(--table-cell-radius);
 }
 
 /* ------------------------------------------------------ */
@@ -111,15 +111,15 @@ table:not([data-table-separators="false"]) th {
 /* First striped data row should get TOP rounding */
 .table-striped-columns:not(.header-table)
 tbody tr:first-child td:nth-child(even) {
-    border-top-left-radius: var(--table-cell-radius);
-    border-top-right-radius: var(--table-cell-radius);
+    border-start-start-radius: var(--table-cell-radius);
+    border-start-end-radius: var(--table-cell-radius);
 }
 
 /* Last striped data row: bottom corners */
 .table-striped-columns:not(.header-table)
 tbody tr:last-child td:nth-child(even) {
-    border-bottom-left-radius: var(--table-cell-radius);
-    border-bottom-right-radius: var(--table-cell-radius);
+    border-end-start-radius: var(--table-cell-radius);
+    border-end-end-radius: var(--table-cell-radius);
 }
 
 /* Remove last separator */

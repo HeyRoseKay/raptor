@@ -36,7 +36,7 @@ button.btn, a.btn {
 }
 
 button.btn > * + * {
-    margin-left: var(--ctrl-gap, 0.5rem);
+    margin-inline-start: var(--ctrl-gap, 0.5rem);
 }
 
 /* =========================================================

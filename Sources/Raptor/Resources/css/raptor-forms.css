@@ -22,11 +22,11 @@
     line-height: 1;
 }
 
-/* Label is right-aligned and doesn't wrap */
+/* Label is end-aligned and doesn't wrap */
 .field-label label {
     font-size: 1rem;
     white-space: nowrap;
-    text-align: right;
+    text-align: end;
 }
 
 /* Input column */
@@ -71,14 +71,14 @@
     display: contents;
 }
 
-/* Label column — right aligned */
+/* Label column — end aligned */
 .form.form-leading .field-label {
-    text-align: right;
+    text-align: end;
 }
 
 .form.form-leading .field-label label {
     white-space: nowrap;
-    padding-right: 1rem;
+    padding-inline-end: 1rem;
 }
 
 /* Button aligns with inputs */
