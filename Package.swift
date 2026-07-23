@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Raptor",
-    platforms: [.macOS(.v15)],
+    platforms: [.macOS(.v15), .iOS(.v18)],
     products: [
         .library(name: "Raptor", targets: ["Raptor"]),
         .library(name: "RaptorHTML", targets: ["RaptorHTML"]),
